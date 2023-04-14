@@ -25,12 +25,4 @@ fn main() {
     println!("target {:?}", output.metadata().unwrap().len());
     println!("elapsed time {:?}", start.elapsed());
 
-    let input = BufReader::new(File::open(args().nth(2).unwrap()).unwrap());
-    let mut decoder = GzDecoder::new(input);
-
-    let mut decompressed = File::create("decompressed.txt").unwrap();
-    decompressed.write(&mut decoder.get_ref().buffer()).unwrap();
-    // println!("decompressed {:?}", decoder.get_ref().buffer());
-
-    // GzDecoder::new(&mut output);
 }
